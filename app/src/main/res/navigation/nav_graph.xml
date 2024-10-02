@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/listadoFragment">
+
+    <fragment
+        android:id="@+id/categoriaFragment"
+        android:name="com.example.starwaska.recyclerCategoria.CategoriaFragment"
+        android:label="fragment_categoria"
+        tools:layout="@layout/fragment_categoria" >
+        <action
+            android:id="@+id/action_categoriaFragment_to_detalleFragment"
+            app:destination="@id/detalleFragment" />
+        <action
+            android:id="@+id/action_categoriaFragment_to_carritoFragment"
+            app:destination="@id/carritoFragment" />
+        <argument
+            android:name="Categ"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/carritoFragment"
+        android:name="com.example.starwaska.recyclerCarrito.CarritoFragment"
+        android:label="fragment_carrito"
+        tools:layout="@layout/fragment_carrito" >
+        <action
+            android:id="@+id/action_carritoFragment_to_procesoFragment"
+            app:destination="@id/procesoFragment" />
+    </fragment>
+    <argument
+        android:name="nm_pro"
+        app:argType="string" />
+    <fragment
+        android:id="@+id/detalleFragment"
+        android:name="com.example.starwaska.DetalleFragment"
+        android:label="DetalleFragment" >
+        <action
+            android:id="@+id/action_detalleFragment_to_carritoFragment"
+            app:destination="@id/carritoFragment" />
+        <argument
+            android:name="detalleNom"
+            app:argType="string" />
+        <argument
+            android:name="detalleDescrip"
+            app:argType="string" />
+        <argument
+            android:name="detallePrecio"
+            app:argType="float" />
+        <argument
+            android:name="detalleImagen"
+            app:argType="string" />
+        <argument
+            android:name="detalleDesc"
+            app:argType="float" />
+        <argument
+            android:name="detalleTit"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/listadoFragment"
+        android:name="com.example.starwaska.recyclerListado.ListadoFragment"
+        android:label="fragment_listado"
+        tools:layout="@layout/fragment_listado" >
+        <action
+            android:id="@+id/action_listadoFragment_to_categoriaFragment"
+            app:destination="@id/categoriaFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/procesoFragment"
+        android:name="com.example.starwaska.ProcesoFragment"
+        android:label="fragment_proceso"
+        tools:layout="@layout/fragment_proceso">
+        <action
+            android:id="@+id/action_procesoFragment_to_metodoFragment"
+            app:destination="@id/metodoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/metodoFragment"
+        android:name="com.example.starwaska.MetodoFragment"
+        android:label="fragment_metodo"
+        tools:layout="@layout/fragment_metodo" >
+        <action
+            android:id="@+id/action_metodoFragment_to_pagoFragment"
+            app:destination="@id/pagoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/pagoFragment"
+        android:name="com.example.starwaska.PagoFragment"
+        android:label="fragment_pago"
+        tools:layout="@layout/fragment_pago" />
+
+</navigation>

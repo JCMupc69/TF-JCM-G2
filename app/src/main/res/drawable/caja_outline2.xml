@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Fondo de la caja -->
+    <solid android:color="@color/white"/> <!-- Color de fondo del TextView -->
+
+    <!-- Radio de los bordes -->
+    <corners android:radius="15dp"/> <!-- Redondea todos los bordes con 16dp -->
+
+    <!-- Borde de la caja -->
+    <stroke android:width="0dp" android:color="#000000"/> <!-- Grosor y color del borde -->
+</shape>

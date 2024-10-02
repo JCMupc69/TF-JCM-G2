@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="10dp"
+    android:paddingBottom="0dp">
+
+    <TextView
+        android:id="@+id/carrito_nom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="1dp"
+        android:hint="Nombre Producto"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/carrito_Descrip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:hint="Descripcion"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/carrito_nom" />
+
+    <TextView
+        android:id="@+id/moneda"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="6dp"
+        android:text="@string/moneda"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toStartOf="@+id/carrito_precio"
+        app:layout_constraintTop_toTopOf="@+id/carrito_precio" />
+
+    <TextView
+        android:id="@+id/carrito_precio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="300dp"
+        android:layout_marginTop="54dp"
+        android:hint="0.00"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/cantidad"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:text="Cantidad :"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/carrito_Descrip" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="90dp"
+        android:background="@color/black"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="0dp" />
+
+    <TextView
+        android:id="@+id/bt_minus"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_marginEnd="10dp"
+        android:background="@drawable/caja_outlined"
+        android:gravity="center"
+        android:text="-"
+        android:textSize="23dp"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/carrito_cant"
+        app:layout_constraintEnd_toStartOf="@+id/carrito_cant"
+        app:layout_constraintTop_toTopOf="@+id/carrito_cant" />
+
+    <TextView
+        android:id="@+id/carrito_cant"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:text="1"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/cantidad"
+        app:layout_constraintStart_toEndOf="@+id/cantidad"
+        app:layout_constraintTop_toTopOf="@+id/cantidad"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/bt_plus"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="10dp"
+        android:background="@drawable/caja_outlined"
+        android:gravity="center"
+        android:text="+"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:textSize="23dp"
+        app:layout_constraintBottom_toBottomOf="@+id/carrito_cant"
+        app:layout_constraintStart_toEndOf="@+id/carrito_cant"
+        app:layout_constraintTop_toTopOf="@+id/carrito_cant" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

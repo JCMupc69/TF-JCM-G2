@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">StarWaska</string>
+    <string name="TituloCategoria">Categoria</string>
+    <string name="hello_blank_fragment">PAGO\n-- under construction  --</string>
+    <string name="moneda">S/</string>
+    <string-array name="distritos">
+        <item>VISA</item>
+        <item>MasterCard</item>
+        <item>AMEX</item>
+        <item>Diners Club</item>
+        <item>Yape</item>
+    </string-array>
+</resources>

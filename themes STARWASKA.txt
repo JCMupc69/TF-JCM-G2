@@ -1,0 +1,47 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.StarWaska" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+    </style>
+
+    <style name="Theme.StarWaska" parent="Base.Theme.StarWaska" />
+</resources>
+
+
+(  night  )
+
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.StarWaska" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your dark theme here. -->
+        <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+    </style>
+</resources>
+
+
+	id: Int		
+	categoria: String,
+                     nombre: String,
+                     descripcion: String,
+                     precio: Double,
+                     descuento: Double,
+                     imagen: String,
+                     clickeado: Boolean)
+
+16	Vinos	Finca Rotondo\nMalbec Reserva	Botella 750 ml.	47.25	0.2	vn_rotondo_rs	false
+17, "Vinos", "Viña Vieja\nMalbec Merlot", "Botella 750 ml.", 28.00, 0.2, "vn_vvieja_ml", false
+18, "Vinos", "Viña Vieja\nChenin Blane", "Botella 750 ml.", 28.00, 0.2, "vn_vvieja_cb", false
+19, "Vinos", "Vino Queirolo\nMagdalena", "Botella 750 ml.", 35.00, 0.2, "vn_queirolo_mg", false
+
+20, "Vinos", "Casillero del Diablo\nMerlot", "Botella 750 ml.", 45.125, 0.2, "vn_casillero_ml", false
+21, "Vinos", "Casillero del Diablo\nSauvignon Blanc", "Botella 750 ml.", 61.25, 0.2, "vn_casillero_sb", false
+22, "Vinos", "Casillero del Diablo\nRosé Syrah", "Botella 750 ml.", 53.625, 0.2, "vn_casillero_rs", false
+23, "Vinos", "Tabernero Gran Tinto\n Semi Seco", "Botella 750 ml.", 19.875, 0.2, "vn_tabernero_ss", false
+24, "Vinos", "Tabernero Gran Tinto\n Fina Reserva", "Botella 750 ml.", 24.375, 0.2, "vn_tabernero_fr", false
+25, "Vinos", "El Enemigo\nMalbec", "Botella 750 ml.", 124.875, 0.2, "vn_enemigo_mb", false
+26, "Vinos", "Trapiche\nCabernet Sauvignon", "Botella 750 ml.", 33.625, 0.2, "vn_trapiche_cs", false
+27, "Vinos", "Navarro Correas\nColección Privada", "Botella 750 ml.", 62.375, 0.2, "vn_ncorreas_mb", false
+28, "Vinos", "Tarapacá\nReserva Carmenere", "Botella 750 ml.", 45.00, 0.2, "vn_tarapaca_cm", false
+29, "Vinos", "Leyda\nBlanco Chardonnay", "Botella 750 ml.", 99.875, 0.2, "vn_leyda_cy", false
+30, "Vinos", "Marques de Riscal\nTempranillo", "Botella 1.5 l.", 249.875, 0.2, "vn_mriscal_rj", false
