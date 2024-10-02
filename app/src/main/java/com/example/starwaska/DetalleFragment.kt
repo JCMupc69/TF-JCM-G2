@@ -1,6 +1,8 @@
 package com.example.starwaska
 
+import android.annotation.SuppressLint
 import android.graphics.Paint
+import android.graphics.drawable.Drawable
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -10,6 +12,8 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
+import androidx.core.content.res.ResourcesCompat
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 
@@ -25,6 +29,7 @@ class DetalleFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_detalle, container, false)
     }
 
+    @SuppressLint("DefaultLocale", "SetTextI18n")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 //        super.onViewCreated(view, savedInstanceState)
 
@@ -43,6 +48,7 @@ class DetalleFragment : Fragment() {
         val txtDetPrecio = view.findViewById<TextView>(R.id.precio_Detalle)
         val imagenDet = view.findViewById<ImageView>(R.id.img_Detalle)
         val txtAntPrecio = view.findViewById<TextView>(R.id.ant_precio)
+        val btnAgregar = view.findViewById<TextView>(R.id.detalle_agregar)
 
         txtTitCateg.text = detalleTit
         txtDetNom.text = detalleNom
@@ -54,22 +60,29 @@ class DetalleFragment : Fragment() {
         txtAntPrecio.text = "S/ " + String.format("%.2f", detallePrecio)
         txtAntPrecio.paintFlags = Paint.STRIKE_THRU_TEXT_FLAG
 
-        val imageName = detalleImagen
-        val imageResourceId = resources.getIdentifier(imageName, "drawable", requireContext().packageName)
+        val imageResourceId = resources.getIdentifier(detalleImagen, "drawable", requireContext().packageName)
         imagenDet.setImageResource(imageResourceId)
 
         val btnAñadir = view.findViewById<Button>(R.id.btn_addProducto)
-        //val btnMuestra = view.findViewById<Button>(R.id.btn_sample)
 
         btnAñadir.setOnClickListener {
             val action = DetalleFragmentDirections.actionDetalleFragmentToCarritoFragment()
             findNavController().navigate(action)
         }
 
-        /*btnMuestra.setOnClickListener {
-            val action = DetalleFragmentDirections.actionDetalleFragmentToMuestraFragment()
-            findNavController().navigate(action)
-        }*/
+        btnAgregar.setOnClickListener {
+            val imgCheck: Drawable? = ResourcesCompat.getDrawable(resources, R.drawable.ic_check2, null)
+            imgCheck?.setBounds(0, 0, 50, 50)
+
+            btnAgregar.setCompoundDrawablesRelative(null,null,imgCheck,null)
+            btnAgregar.compoundDrawablePadding = -10
+            btnAgregar.text = "Añadido"
+            btnAgregar.textSize = 18.0F
+            btnAgregar.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.white))
+            btnAgregar.setTextColor(ContextCompat.getColor(requireContext(), R.color.green))
+            btnAgregar.setPaddingRelative(0,0,10,0)
+        }
+
 
     }
 }

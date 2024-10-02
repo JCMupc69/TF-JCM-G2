@@ -12,6 +12,7 @@ import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
+import androidx.core.view.marginTop
 import androidx.recyclerview.widget.RecyclerView
 import com.example.starwaska.R
 import com.example.starwaska.dao.DAO
@@ -25,6 +26,7 @@ class MiAdapterCateg(private val productoLista:List<Producto>,
 
     private var dbHelper = DataBaseHelper(context)
     private var db: DAO = DAO(dbHelper)
+    private val lista = productoLista
 
     interface OnItemClickListener {
         fun onItemClick(item: Producto)
@@ -32,9 +34,20 @@ class MiAdapterCateg(private val productoLista:List<Producto>,
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MiViewHolder {
-        val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.item_producto, parent, false)
-        return MiViewHolder(view)
+
+        if (lista[0].categ == "Vinos") {
+            val view =
+                LayoutInflater.from(parent.context).inflate(R.layout.item_producto2, parent, false)
+            return MiViewHolder(view)
+        } else {
+            val view =
+                LayoutInflater.from(parent.context).inflate(R.layout.item_producto, parent, false)
+            return MiViewHolder(view)
+        }
+
+        /*val view =
+            LayoutInflater.from(parent.context).inflate(R.layout.item_producto, parent, false)
+        return MiViewHolder(view)*/
     }
 
     override fun getItemCount(): Int {
@@ -46,7 +59,12 @@ class MiAdapterCateg(private val productoLista:List<Producto>,
 
         val productos = productoLista[position]
 
-        holder.txtNombre.text = productos.nombre.replace("\n", " ")
+        if (productos.categ == "Vinos") {
+            holder.txtNombre.text = productos.nombre
+        } else {
+            holder.txtNombre.text = productos.nombre.replace("\n", " ")
+        }
+
         holder.txtDescrip.text = productos.descripcion
 
         val precioFinal = productos.precio * (1 - productos.descuento)
@@ -99,11 +117,36 @@ class MiAdapterCateg(private val productoLista:List<Producto>,
 
     inner class MiViewHolder(view: View): RecyclerView.ViewHolder(view) {
         val imgProducto: ImageView = view.findViewById(R.id.producto_imagen)
-        val txtNombre: TextView = view.findViewById(R.id.producto_nom)
+        var txtNombre: TextView = view.findViewById(R.id.producto_nom)
         val txtDescrip: TextView = view.findViewById(R.id.producto_descrip)
         val txtPrecio: TextView = view.findViewById(R.id.producto_precio)
         val cardView : CardView = view.findViewById(R.id.cardView_producto)
         val txtAgregar: TextView = view.findViewById((R.id.agregar_Prod))
+    }
+
+    fun dibujarBoton(holder: MiViewHolder, categ: Producto) {
+        if (categ.clickeado) {
+            val imgCheck: Drawable? = ResourcesCompat.getDrawable(context.resources, R.drawable.ic_check2, null)
+            imgCheck?.setBounds(0, 0, 50, 50)
+
+            holder.txtAgregar.setCompoundDrawablesRelative(null,null,imgCheck,null)
+            holder.txtAgregar.compoundDrawablePadding = -10
+            holder.txtAgregar.text = "Añadido"
+            holder.txtAgregar.setTextSize(18.0F)
+            holder.txtAgregar.setBackgroundColor(ContextCompat.getColor(holder.itemView.context, R.color.white))
+            holder.txtAgregar.setTextColor(ContextCompat.getColor(holder.itemView.context, R.color.green))
+            holder.txtAgregar.setPaddingRelative(0,0,10,0)
+
+        } else {
+            holder.txtAgregar.setCompoundDrawablesRelative(null,null,null,null)
+            holder.txtAgregar.compoundDrawablePadding = 0
+            holder.txtAgregar.setBackgroundResource(R.drawable.caja_agregar)
+            holder.txtAgregar.text = "Añadir"
+            holder.txtAgregar.setTextSize(16.0F)
+            holder.txtAgregar.setTextColor(ContextCompat.getColor(holder.itemView.context, R.color.white))
+            holder.txtAgregar.setPaddingRelative(0,0,0,0)
+        }
+
     }
 
 }
